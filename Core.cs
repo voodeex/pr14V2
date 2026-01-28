@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace pr14V2
+{
+    internal class Core
+    {
+        public static _14prLoobchkinGusenkovContext Context = new _14prLoobchkinGusenkovContext();
+    }
+}
