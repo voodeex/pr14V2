@@ -62,7 +62,7 @@
             <!-- шаблон карточки -->
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border Width="260" Margin="12" Background="White" CornerRadius="12">
+                    <Border Width="260" Margin="12" Background="White" CornerRadius="12" MouseLeftButtonDown="MovieCard_DoubleClick">
 
                         <StackPanel>
 

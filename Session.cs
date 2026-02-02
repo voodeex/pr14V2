@@ -20,4 +20,5 @@ public partial class Session
     public virtual Movie Movie { get; set; } = null!;
 
     public virtual ICollection<SessionSeat> SessionSeats { get; set; } = new List<SessionSeat>();
+
 }

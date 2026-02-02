@@ -26,6 +26,18 @@ namespace pr14V2.Pages
         {
             InitializeComponent();
             prod.ItemsSource = movies;
+            UpdateLoginButton();
+        }
+        private void UpdateLoginButton()
+        {
+            if (Core.CurrentUser != null)
+            {
+                MainLoginButton.Content = Core.CurrentUser.Login;
+            }
+            else
+            {
+                MainLoginButton.Content = "Войти";
+            }
         }
 
         private void SortFilm(object sender, SelectionChangedEventArgs e)
@@ -51,6 +63,17 @@ namespace pr14V2.Pages
         private void MainLoginButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new LoginPage());
+        }
+        private void MovieCard_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                Border border = sender as Border;
+                if (border != null && border.DataContext is Movie movie)
+                {
+                    NavigationService.Navigate(new MovieDetailPage(movie));
+                }
+            }
         }
     }
 }

@@ -33,24 +33,43 @@ namespace pr14V2.Pages
 
         private void InputButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstRegPassTextBox.Text == SecondRegPassTextBox.Text && !string.IsNullOrWhiteSpace(RegLoginTextBox.Text))
+            if (string.IsNullOrWhiteSpace(RegLoginTextBox.Text))
             {
-                var newUser = new User
-                {
-                    Login = RegLoginTextBox.Text,
-                    Password = FirstRegPassTextBox.Text,
-                    CreatedAt = DateTime.Now
-                };
-
-                Core.Context.Users.Add(newUser);
-                Core.Context.SaveChanges();
-
-                NavigationService.Navigate(new LoginPage());
+                MessageBox.Show("Введите логин");
+                return;
             }
-            else
+
+            if (Core.Context.Users.Any(u => u.Login == RegLoginTextBox.Text))
             {
-                MessageBox.Show("Пароли не совпадают или не введен логин");
+                MessageBox.Show("Пользователь с таким логином уже существует");
+                return;
             }
+
+            if (FirstRegPassTextBox.Text != SecondRegPassTextBox.Text)
+            {
+                MessageBox.Show("Пароли не совпадают");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(FirstRegPassTextBox.Text))
+            {
+                MessageBox.Show("Введите пароль");
+                return;
+            }
+
+    
+            var newUser = new User
+            {
+                Login = RegLoginTextBox.Text,
+                Password = FirstRegPassTextBox.Text,
+                CreatedAt = DateTime.Now
+            };
+
+            Core.Context.Users.Add(newUser);
+            Core.Context.SaveChanges();
+
+            MessageBox.Show("Регистрация прошла успешно!");
+            NavigationService.Navigate(new LoginPage());
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

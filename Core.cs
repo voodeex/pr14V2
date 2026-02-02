@@ -9,5 +9,9 @@ namespace pr14V2
     internal class Core
     {
         public static _14prLoobchkinGusenkovContext Context = new _14prLoobchkinGusenkovContext();
+
+
+        public static User CurrentUser { get; set; }
+        public static Session CurrentSession { get; set; }
     }
 }

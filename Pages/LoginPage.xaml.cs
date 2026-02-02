@@ -34,11 +34,11 @@ namespace pr14V2.Pages
 
         private void InputButton_Click(object sender, RoutedEventArgs e)
         {
-            var user = users.FirstOrDefault(u => u.Login == UserLogin.Text);
-            var pass = users.FirstOrDefault(u => u.Password == UserPassword.Text);
-            if (user != null && pass != null)
+            var user = Core.Context.Users.FirstOrDefault(u => u.Login == UserLogin.Text && u.Password == UserPassword.Text);
+            if (user != null)
             {
-                NavigationService.Navigate(new MainLoginPage());
+                Core.CurrentUser = user;
+                NavigationService.Navigate(new MainPage());
             }
             else
             {
