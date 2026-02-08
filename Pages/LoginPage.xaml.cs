@@ -50,5 +50,10 @@ namespace pr14V2.Pages
         {
             NavigationService.Navigate(new RegisterPage());
         }
+
+        private void ForgotPassButton(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ForgotPass());
+        }
     }
 }

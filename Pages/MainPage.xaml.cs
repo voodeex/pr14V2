@@ -62,7 +62,14 @@ namespace pr14V2.Pages
 
         private void MainLoginButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new LoginPage());
+            if (Core.CurrentUser == null)
+            {
+                NavigationService.Navigate(new LoginPage());
+            }
+            else
+            {
+                NavigationService.Navigate(new ProfilePage(Core.CurrentUser));
+            }
         }
         private void MovieCard_DoubleClick(object sender, MouseButtonEventArgs e)
         {

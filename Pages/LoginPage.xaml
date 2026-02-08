@@ -58,7 +58,11 @@
                     <TextBlock Text="Введите пароль" FontSize="20"  HorizontalAlignment="Center"/>
                     <TextBox x:Name="UserPassword" Padding="8,10" Height="38"/>
                 </StackPanel>
-                <Button Grid.Row="1" Width="150" x:Name="InputButton" Click="InputButton_Click" Content="Войти" FontSize="15" Background="Transparent" VerticalAlignment="Bottom" Margin="5,5,5,10"/>
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+
+                    <Button Grid.Row="1" Width="150" x:Name="InputButton" Click="InputButton_Click" Content="Войти" FontSize="15" Background="Transparent"  Margin="5,5,5,10"  VerticalAlignment="Bottom"/>
+                    <Button Content="Забыли пароль?" Background="Transparent" BorderThickness="0" Margin="5,5,5,10" Click="ForgotPassButton"></Button>
+                </StackPanel>
             </Grid>
         </Border>
     </Grid>
